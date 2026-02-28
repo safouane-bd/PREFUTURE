@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Financial Risk Intelligence</title>
+    <link rel="stylesheet" href="../static/style.css">
+<script defer src="../static/script.js"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;800&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+    <canvas id="bgCanvas"></canvas>
+
+    <nav class="navbar">
+        <div class="logo">PREFUTURE AI</div>
+    <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="prediction.html">Prediction</a></li>
+        <li><a href="visualisation.html">Visualisation</a></li>
+        <li><a href="strategy.html">Solutions</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="contact.html">Contact</a></li>
+    </ul>
+</nav>
+
+
+    </nav>
+
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Predict. Prevent. Protect.</h1>
+            <p>AI-Driven Financial Crisis Intelligence</p>
+            <button onclick="window.location.href='prediction.html'">Run Risk Analysis</button>
+
+        </div>
+    </section>
+
+    <section class="dashboard">
+        <div class="card">
+            <h2>Global Risk Level</h2>
+            <div class="risk-indicator high">ELEVATED</div>
+        </div>
+
+        <div class="card">
+            <h2>Crisis Probability</h2>
+            <canvas id="riskChart"></canvas>
+        </div>
+
+        <div class="card">
+            <h2>AI Confidence Score</h2>
+            <div class="score">84.2%</div>
+            <div class="chart-line"></div><br>
+            <p>Predictive accuracy for Q3 Volatility</p>
+        </div>
+    </section>
+
+    <script src="../static/script.js"></script>
+</body>
+
+
+
+</html>

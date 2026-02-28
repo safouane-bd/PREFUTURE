@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Solutions - NEXUS AI</title>
+    <link rel="stylesheet" href="../static/style.css">
+    <script defer src="../static/script.js"></script>
+</head>
+<body>
+    <canvas id="bgCanvas"></canvas>
+
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="logo">NEXUS AI</div>
+    <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="prediction.html">Prediction</a></li>
+        <li><a href="visualisation.html">Visualisation</a></li>
+        <li><a href="strategy.html">Solutions</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="contact.html">Contact</a></li>
+    </ul>
+    </nav>
+
+
+    <!-- Hero / Introduction -->
+    <section class="hero" style="height:auto; padding:120px 6%;">
+        <div class="hero-content">
+            <h1>AI-Powered Financial Plan Suggestions</h1>
+            <p>Our system analyzes your economic data and proposes a tailored plan to prevent potential crises.</p>
+        </div>
+    </section>
+
+    <!-- Left-Right Layout: AI Plan Suggestion + Form -->
+    <section class="prediction-section" style="gap:60px; padding:60px 6%;">
+        <!-- LEFT SIDE: Plan & Explanation -->
+        <div class="left-side" style="flex:1;">
+            <h2>Suggested Financial Plan</h2>
+            <div class="plan-card">
+                <h3>Step 1: Diversify Investments</h3>
+                <p>Reduce dependency on high-risk sectors to balance economic exposure.</p>
+            </div>
+            <div class="plan-card">
+                <h3>Step 2: Optimize Debt Levels</h3>
+                <p>Implement strategies to lower debt-to-GDP ratio sustainably.</p>
+            </div>
+            <div class="plan-card">
+                <h3>Step 3: Adjust Monetary Policy</h3>
+                <p>Use interest rate and liquidity measures to stabilize markets.</p>
+            </div>
+        </div>
+
+        <!-- RIGHT SIDE: AI Integration / Input -->
+        <div class="right-side" style="flex:1;">
+            <div class="form-card">
+                <h2>Run AI Suggestion Engine</h2>
+                <form id="solutionForm">
+                    <input type="number" id="gdp" placeholder="GDP Growth (%)" required>
+                    <input type="number" id="inflation" placeholder="Inflation Rate (%)" required>
+                    <input type="number" id="debt" placeholder="Debt-to-GDP Ratio (%)" required>
+                    <input type="number" id="interest" placeholder="Interest Rate (%)" required>
+                    <button type="submit">Get Plan</button>
+                </form>
+
+                <!-- AI Generated Plan -->
+                <div id="aiResultBox" class="result-box" style="display:none; margin-top:20px;">
+                    <h3>AI Suggested Plan</h3>
+                    <p id="aiPlanText">The AI will generate a customized financial plan here.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Reasons Section -->
+    <section class="reasons-section" style="padding:60px 6%;">
+        <h2>Why Choose This Plan?</h2>
+        <div class="reasons-grid" style="display:grid; grid-template-columns:repeat(auto-fit,minmax(300px,1fr)); gap:30px;">
+            <div class="reason-card">
+                <h3>Diversification</h3>
+                <p>Minimizes risk and exposure to volatile sectors while maintaining growth potential.</p>
+            </div>
+            <div class="reason-card">
+                <h3>Debt Optimization</h3>
+                <p>Reduces financial strain and creates a stronger buffer against economic shocks.</p>
+            </div>
+            <div class="reason-card">
+                <h3>Monetary Measures</h3>
+                <p>Helps control inflation and stabilize markets to prevent systemic collapse.</p>
+            </div>
+        </div>
+    </section>
+<script src="../static/script.js"></script>
+</body>
+</html>

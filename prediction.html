@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Financial Risk Intelligence</title>
+    <link rel="stylesheet" href="../static/style.css">
+    <script defer src="../static/script.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<canvas id="bgCanvas"></canvas>
+
+<nav class="navbar">
+    <div class="logo">NEXUS AI</div>
+    <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="prediction.html">Prediction</a></li>
+        <li><a href="visualisation.html">Visualisation</a></li>
+        <li><a href="strategy.html">Solutions</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="contact.html">Contact</a></li>
+    </ul>
+</nav>
+
+<section class="prediction-section">
+
+    <!-- LEFT SIDE TEXT -->
+    <div class="left-side">
+        <h1>AI Crisis Intelligence Engine</h1>
+        <p>
+            Our financial risk model analyzes institution-level metrics,
+            network exposures, and market indicators to detect systemic 
+            instability before collapse.
+        </p>
+        <p class="highlight">
+            Enter financial institution data and activate the ML prediction engine.
+        </p>
+    </div>
+
+    <!-- RIGHT SIDE INPUT CARD -->
+    <div class="right-side">
+        <div class="form-card">
+            <h2>Enter Financial Data</h2>
+            <form id="inputForm">
+                <input type="number" step="any" id="gdp_growth" placeholder="GDP Growth (%)" required>
+                <input type="number" step="any" id="vix_index" placeholder="VIX Index" required>
+                <input type="number" step="any" id="credit_spread" placeholder="Credit Spread (bps)" required>
+                <input type="number" step="any" id="leverage_ratio" placeholder="Leverage Ratio" required>
+
+            
+                <button onclick="window.location.href='visualisation.html'">submit</button>
+                <button type="button" class="file-btn" id="fileBtn">Insert File</button>
+                <input type="file" id="fileInput" style="display:none;">
+            </form>
+
+           <!-- STATISTIC CARDS AT THE BOTTOM -->
+<div class="cards-container">
+    <div class="stat-card">
+        <h3>Market Volatility</h3>
+        <p>Example data 1</p>
+    </div>
+    <div class="stat-card">
+        <h3>Credit Exposure</h3>
+        <p>Example data 2</p>
+    </div>
+    <div class="stat-card">
+        <h3>Liquidity Metrics</h3>
+        <p>Example data 3</p>
+    </div>
+</div>
+        </div>
+    </div>
+
+</section>
+
+<script>
+    // File insertion without backend
+    const fileBtn = document.getElementById('fileBtn');
+    const fileInput = document.getElementById('fileInput');
+
+    fileBtn.addEventListener('click', () => {
+        fileInput.click();
+    });
+
+    fileInput.addEventListener('change', (e) => {
+        const file = e.target.files[0];
+        if (file) {
+            alert(`File selected: ${file.name}`);
+            const reader = new FileReader();
+            reader.onload = function(evt) {
+                console.log("File content:", evt.target.result);
+            }
+            reader.readAsText(file);
+        }
+    });
+
+    // Form submission
+    const inputForm = document.getElementById('inputForm');
+    inputForm.addEventListener('submit', (e) => {
+        e.preventDefault();
+        const gdp = document.getElementById('gdp_growth').value;
+        const vix = document.getElementById('vix_index').value;
+        const credit = document.getElementById('credit_spread').value;
+        const leverage = document.getElementById('leverage_ratio').value;
+
+        alert(`Data Submitted:\nGDP Growth: ${gdp}\nVIX Index: ${vix}\nCredit Spread: ${credit}\nLeverage Ratio: ${leverage}`);
+    });
+</script>
+
+</body>
+</html>

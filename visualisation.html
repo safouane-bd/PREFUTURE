@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Data Visualization - NEXUS AI</title>
+    <link rel="stylesheet" href="../static/style.css">
+    <script defer src="../static/script.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+</head>
+<body>
+    <canvas id="bgCanvas"></canvas>
+
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="logo">NEXUS AI</div>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="prediction.html">Prediction</a></li>
+        <li><a href="visualisation.html">Visualisation</a></li>
+        <li><a href="strategy.html">Solutions</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="contact.html">Contact</a></li>
+    </ul>
+    </nav>
+
+    <!-- Hero -->
+    <section class="hero" style="height:auto; padding:120px 6%;">
+        <div class="hero-content">
+            <h1>Visualize Financial Risk</h1>
+            <p>Explore graphs, tables, and AI-driven interpretations of your financial data.</p>
+        </div>
+
+    
+    </section>
+
+    <!-- Graphs Section -->
+    <section class="visualization-section" style="padding:60px 6%;">
+        <h2>Analysis Graphs</h2>
+        <div class="graphs-grid" style="display:grid; grid-template-columns:repeat(auto-fit,minmax(300px,1fr)); gap:40px; margin-top:30px;">
+            <!-- Graph Card 1 -->
+            <div class="card">
+                <h3>GDP vs Debt Ratio</h3>
+                <canvas id="gdpDebtChart"></canvas>
+            </div>
+            <!-- Graph Card 2 -->
+            <div class="card">
+                <h3>Inflation vs Interest</h3>
+                <canvas id="inflationInterestChart"></canvas>
+            </div>
+            <!-- Graph Card 3 -->
+            <div class="card">
+                <h3>Sector Exposure</h3>
+                <canvas id="sectorChart"></canvas>
+            </div>
+        </div>
+    </section>
+
+    <!-- AI Interpretation Section -->
+    <section class="interpretation-section" style="padding:60px 6%;">
+        <h2>AI Interpretation</h2>
+        <div class="card" style="padding:30px; margin-top:20px;">
+            <p id="aiInterpretation">
+                The AI will analyze patterns in your data and highlight potential financial risks or anomalies here.
+            </p>
+        </div>
+    </section>
+
+    <!-- Numerical Table Section -->
+    <section class="numerical-section" style="padding:60px 6%;">
+        <h2>Key Metrics</h2>
+        <div class="card" style="overflow-x:auto; margin-top:20px;">
+            <table style="width:100%; border-collapse:collapse; color:#fff;">
+                <thead>
+                    <tr style="border-bottom:2px solid var(--primary);">
+                        <th>Indicator</th>
+                        <th>Value</th>
+                        <th>Impact</th>
+                    </tr>
+                </thead>
+                <tbody id="metricsTable">
+                    <tr>
+                        <td>GDP Growth</td>
+                        <td>3.5%</td>
+                        <td>Moderate</td>
+                    </tr>
+                    <tr>
+                        <td>Inflation Rate</td>
+                        <td>6%</td>
+                        <td>High</td>
+                    </tr>
+                    <tr>
+                        <td>Debt-to-GDP Ratio</td>
+                        <td>85%</td>
+                        <td>High</td>
+                    </tr>
+                    <tr>
+                        <td>Interest Rate</td>
+                        <td>4%</td>
+                        <td>Moderate</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+             <br>
+        <button id="downloadPdfBtn" class="submit-btn">Download Report as PDF</button>
+    </section>
+
+    <!-- JS for Charts -->
+    <script>
+        // Sample Data for Graphs (replace with dynamic data)
+        const gdpDebtCtx = document.getElementById('gdpDebtChart').getContext('2d');
+        const gdpDebtChart = new Chart(gdpDebtCtx, {
+            type: 'line',
+            data: {
+                labels: ['2018','2019','2020','2021','2022'],
+                datasets: [{
+                    label: 'GDP (%)',
+                    data: [3, 2.5, -1, 2, 3.5],
+                    borderColor: '#00ff88',
+                    fill: false,
+                    tension:0.2
+                },{
+                    label: 'Debt-to-GDP (%)',
+                    data: [70, 72, 80, 82, 85],
+                    borderColor: '#1877f2',
+                    fill: false,
+                    tension:0.2
+                }]
+            },
+            options: { responsive:true, plugins:{legend:{labels:{color:'#fff'}}}, scales:{y:{ticks:{color:'#fff'}}, x:{ticks:{color:'#fff'}}} }
+        });
+
+        const inflationInterestCtx = document.getElementById('inflationInterestChart').getContext('2d');
+        const inflationInterestChart = new Chart(inflationInterestCtx, {
+            type: 'bar',
+            data: {
+                labels: ['2018','2019','2020','2021','2022'],
+                datasets: [{
+                    label: 'Inflation (%)',
+                    data: [2, 2.5, 3, 4, 6],
+                    backgroundColor: '#00ff88'
+                },{
+                    label: 'Interest (%)',
+                    data: [1.5, 1.5, 1.75, 2, 4],
+                    backgroundColor: '#1877f2'
+                }]
+            },
+            options: { responsive:true, plugins:{legend:{labels:{color:'#fff'}}}, scales:{y:{ticks:{color:'#fff'}}, x:{ticks:{color:'#fff'}}} }
+        });
+
+        const sectorCtx = document.getElementById('sectorChart').getContext('2d');
+        const sectorChart = new Chart(sectorCtx, {
+            type: 'pie',
+            data: {
+                labels: ['Banking', 'Energy', 'Tech', 'Healthcare', 'Other'],
+                datasets:[{
+                    data:[25,20,30,15,10],
+                    backgroundColor:['#00ff88','#1877f2','#ff00ff','#ff9900','#00ffff']
+                }]
+            },
+            options:{ plugins:{legend:{labels:{color:'#fff'}}} }
+        });
+    </script>
+
+</body>
+</html>
